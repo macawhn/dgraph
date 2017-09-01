@@ -103,6 +103,13 @@ message MembershipUpdate {
 	string redirect_addr = 4;
 }
 
+message Tablet {
+  string predicate = 1;
+  uint64 uid_start = 2;
+  uint64 uid_end   = 3;
+  int64 size       = 4;
+}
+
 message DirectedEdge {
 	fixed64 entity = 1;    // Subject or source node / UID.
 	string attr = 2;       // Attribute or predicate. Labels the edge.

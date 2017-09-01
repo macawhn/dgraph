@@ -59,3 +59,7 @@ service Worker {
 	rpc UpdateMembership (MembershipUpdate)  returns (MembershipUpdate) {}
 	rpc Export (ExportPayload)                    returns (ExportPayload) {}
 }
+
+service Zero {
+  rpc ShouldServe (Tablet) returns (Payload) {}
+}
