@@ -97,17 +97,20 @@ message Membership {
 // the provided lastUpdate.
 message MembershipUpdate {
 	repeated Membership members = 1;
-	uint64 last_update = 2;
+  repeated Tablet tablets = 2;
+	uint64 last_update = 3;
 
-	bool redirect = 3;
-	string redirect_addr = 4;
+	bool redirect = 6;
+	string redirect_addr = 7;
+
 }
 
 message Tablet {
-  string predicate = 1;
-  uint64 uid_start = 2;
-  uint64 uid_end   = 3;
-  int64 size       = 4;
+  uint32 group_id  = 1; // Served by which group.
+  string predicate = 2;
+  uint64 uid_start = 3;
+  uint64 uid_end   = 4;
+  int64 size       = 5;
 }
 
 message DirectedEdge {

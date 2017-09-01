@@ -23,10 +23,19 @@ import (
 	"github.com/dgraph-io/dgraph/protos"
 )
 
+var emptyMembershipUpdate protos.MembershipUpdate
+
 type Server struct{}
 
 func (s *Server) ShouldServe(
 	ctx context.Context, tablet *protos.Tablet) (resp *protos.Payload, err error) {
 	resp.Data = []byte("ok")
 	return
+}
+
+func (s *Server) Update(
+	ctx context.Context, membership *protos.Membership) (resp *protos.MembershipUpdate, err error) {
+	if ctx.Err() != nil {
+		return &emptyMembershipUpdate, ctx.Err()
+	}
 }

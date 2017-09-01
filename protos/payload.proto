@@ -62,4 +62,5 @@ service Worker {
 
 service Zero {
   rpc ShouldServe (Tablet) returns (Payload) {}
+  rpc Update (Membership) returns (MembershipUpdate) {}
 }
